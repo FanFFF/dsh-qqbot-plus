@@ -16,5 +16,8 @@ the QQ bot's data root:
 - `abs-image-paths.mjs`: rewrites relative markdown image paths to absolute
   paths so the QQ uploader can find them. It resolves against `process.cwd()`;
   set `QQBOT_CWD` when the host cwd differs from `im-qqbot.cwd`.
+- `random-sticker.mjs`: after a group reply, picks a sticker from the formal
+  `lib/library` with a configurable probability (`QQBOT_STICKER_PROB`, default
+  0.15) and per-peer cooldown (`QQBOT_STICKER_COOLDOWN_MIN`, default 10).
 
 Reload extensions with `/tools-reload` (or restart the bot).

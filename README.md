@@ -186,6 +186,7 @@ B 站会限流匿名请求；工具内部做了节流，并缓存匿名 `buvid3`
 
 - `extensions/inbound/bili-card-url.mjs` — 从 QQ 小程序卡片的 raw 数据里提取 B 站 URL。只接受 URL，不接受裸 `BV...`，因为 QQ message id 里可能刚好包含假 BV。
 - `extensions/outbound/abs-image-paths.mjs` — 发图前把 markdown 里的相对图片路径改成绝对路径。
+- `extensions/outbound/random-sticker.mjs` — 回复发完后按概率从正式图库补一张表情包；只作用于群聊，默认 15% 概率、同一会话 10 分钟冷却。
 
 复制到 QQ 机器人的数据根：
 
@@ -199,6 +200,15 @@ cp "$PKG_DIR/extensions/outbound/abs-image-paths.mjs" "$DATA_ROOT/.qqbot-extensi
 ```
 
 `abs-image-paths` 默认用 `process.cwd()` 解析相对路径；如果宿主 cwd 和 `im-qqbot.cwd` 不一致，设置 `QQBOT_CWD`。
+
+`random-sticker` 可调：
+
+```bash
+QQBOT_STICKER_PROB=0.15          # 每次回复补图概率
+QQBOT_STICKER_COOLDOWN_MIN=10    # 同一会话最短间隔（分钟）
+```
+
+它只从 `{dataRoot}/lib/library` 或 `{dataRoot}/表情包/lib/library` 里选图，不会用候选区/回收站的图。
 
 ---
 
