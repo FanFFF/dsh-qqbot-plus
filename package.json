@@ -1,6 +1,6 @@
 {
   "name": "@yangfan1998/dsh-qqbot-plus",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "One-install DeepSeek Harness QQ bot bundle: @zaofan/dsh-qqbot gateway plus vision, Edge TTS and Bilibili reading tools.",
   "type": "module",
   "main": "index.js",
