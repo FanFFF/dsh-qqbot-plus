@@ -1,0 +1,55 @@
+# dsh-qqbot-plus bundle patch
+#
+# Mounts the QQ gateway from @zaofan/dsh-qqbot and the tools shipped by this
+# package. Intended for a FRESH profile: if you already installed
+# @zaofan/dsh-qqbot, do not apply this patch twice (duplicate `im-qqbot`).
+#
+# Credentials: either set QQBOT_APPID / QQBOT_SECRET in the environment, or
+# replace __FROM_ENV__ below with literal strings. Never commit real secrets.
+- insert:
+    - id: im-qqbot
+      name: '@zaofan/dsh-qqbot'
+      config:
+        appId: __FROM_ENV__
+        appSecret: __FROM_ENV__
+        requireMention: false
+        textChunkLimit: 4500
+        sessionIdleTimeout: 1800000
+        maxQueue: 20
+        processingTimeoutMs: 120000
+        historyLimit: 10
+        access:
+          c2cMode: open
+          c2cAllow: []
+          groupMode: open
+          groupAllow: []
+        behavior:
+          freeIntervalSec: 120
+          mentionIntervalSec: 0
+          directIntervalSec: 0
+          debounce:
+            enabled: true
+            silenceSec: 5
+            maxMsgs: 10
+            mentionDelayed: false
+            busySendMode: queue
+        debug: false
+
+    - id: qqbot-plus
+      name: '@yangfan1998/dsh-qqbot-plus'
+      config:
+        vision:
+          provider: zhipu
+          model: aliyun/qwen3-vl-plus
+          maxTokens: 1024
+        tts:
+          bin: edge-tts
+          voice: zh-CN-XiaoyiNeural
+          rate: '+5%'
+          pitch: '+12Hz'
+          maxChars: 500
+        bilibili:
+          timeoutMs: 20000
+          danmakuLimit: 25
+          commentLimit: 10
+          replyLimit: 5

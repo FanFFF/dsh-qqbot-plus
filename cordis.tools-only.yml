@@ -1,0 +1,22 @@
+# Tools-only overlay for profiles that ALREADY mount @zaofan/dsh-qqbot.
+# Do NOT add this package to dsh.profile.bundles in that case; copy the
+# `- insert:` block below into the profile's own cordis.patch.yml instead.
+- insert:
+    - id: qqbot-plus
+      name: '@yangfan1998/dsh-qqbot-plus'
+      config:
+        vision:
+          provider: zhipu
+          model: aliyun/qwen3-vl-plus
+          maxTokens: 1024
+        tts:
+          bin: edge-tts
+          voice: zh-CN-XiaoyiNeural
+          rate: '+5%'
+          pitch: '+12Hz'
+          maxChars: 500
+        bilibili:
+          timeoutMs: 20000
+          danmakuLimit: 25
+          commentLimit: 10
+          replyLimit: 5

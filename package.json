@@ -1,0 +1,56 @@
+{
+  "name": "@yangfan1998/dsh-qqbot-plus",
+  "version": "0.1.0",
+  "description": "One-install DeepSeek Harness QQ bot bundle: @zaofan/dsh-qqbot gateway plus vision, Edge TTS and Bilibili reading tools.",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js"
+  },
+  "files": [
+    "index.js",
+    "tools/**/*.js",
+    "extensions/**/*.mjs",
+    "extensions/README.md",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE",
+    "cordis.tools-only.yml"
+  ],
+  "scripts": {
+    "check": "node --check index.js && node --check tools/vision.js && node --check tools/tts.js && node --check tools/bilibili.js && node --check extensions/inbound/bili-card-url.mjs && node --check extensions/outbound/abs-image-paths.mjs",
+    "pack:dry": "npm pack --dry-run",
+    "pack": "npm pack"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "qqbot",
+    "qq",
+    "vision",
+    "tts",
+    "bilibili"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "dependencies": {
+    "@zaofan/dsh-qqbot": "^1.10.46"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-llm": "*"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "engines": {
+      "dsh": ">=0.2.1-alpha.2"
+    }
+  }
+}
