@@ -1,0 +1,6 @@
+url: https://github.com/FanFFF/dsh-qqbot-plus
+name: FanFFF/dsh-qqbot-plus
+category: notify
+description:
+  en: "QQ bot bundle for DeepSeek Harness: installs the @zaofan/dsh-qqbot gateway and adds image understanding, Edge TTS voice replies, and Bilibili video, danmaku and comment reading tools."
+  zh: "DeepSeek Harness 的 QQ 机器人整合包：安装 @zaofan/dsh-qqbot 网关，并增加识图、Edge TTS 语音和 B 站视频、弹幕、评论读取工具。"
