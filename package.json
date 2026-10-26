@@ -52,5 +52,13 @@
     "engines": {
       "dsh": ">=0.2.1-alpha.2"
     }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FanFFF/dsh-qqbot-plus.git"
+  },
+  "homepage": "https://github.com/FanFFF/dsh-qqbot-plus#readme",
+  "bugs": {
+    "url": "https://github.com/FanFFF/dsh-qqbot-plus/issues"
   }
 }
